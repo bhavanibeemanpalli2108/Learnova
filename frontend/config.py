@@ -2,7 +2,8 @@ import os
 
 BACKEND_URL = os.getenv(
     "BACKEND_URL",
-    "http://127.0.0.1:8000/api/v1"
+    # "http://127.0.0.1:8000/api/v1"
+    "https://learnova-backend-s5n2.onrender.com/api/v1"
 )
 
 HEALTH_URL = f"{BACKEND_URL}/health"
