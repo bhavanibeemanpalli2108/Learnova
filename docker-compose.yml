@@ -1,0 +1,32 @@
+services:
+
+  backend:
+    build:
+      context: ./backend
+
+    container_name: study-assistant-backend
+
+    env_file:
+      - ./backend/.env
+
+    ports:
+      - "8000:8000"
+
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+
+    container_name: study-assistant-frontend
+
+    environment:
+      BACKEND_URL: http://backend:8000/api/v1
+
+    depends_on:
+      - backend
+
+    ports:
+      - "7860:7860"
+
+    restart: unless-stopped
